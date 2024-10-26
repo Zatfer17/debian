@@ -4,9 +4,6 @@ set -e
 gsettings set org.gnome.desktop.screensaver lock-enabled false
 gsettings set org.gnome.desktop.session idle-delay 0
 
-sudo apt-get update >/dev/null
-sudo apt-get install -y git curl >/dev/null
-
 echo "Installing desktop tools..."
 
 # Install desktop tools and tweaks
