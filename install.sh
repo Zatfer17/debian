@@ -3,7 +3,7 @@ set -e
 gsettings set org.gnome.desktop.screensaver lock-enabled false
 gsettings set org.gnome.desktop.session idle-delay 0
 
-sudo apt-get update && sudo apt-get upgrade
+sudo apt update && sudo apt upgrade
 
 echo "Installing apps..."
 
