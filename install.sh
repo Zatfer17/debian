@@ -1,12 +1,6 @@
 set -e
 
 sudo apt-get update
-sudo apt-get install -y git
-
-echo "Cloning the repo..."
-rm -rf ~/Documents/ubuntu
-git clone https://github.com/Zatfer17/ubuntu.git ~/Documents/ubuntu >/dev/null
-cd ~/Documents/ubuntu
 
 echo "Installation starting..."
 
