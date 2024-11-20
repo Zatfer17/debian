@@ -15,7 +15,7 @@ for installer in ./2_apps/*.sh; do source $installer; done
 
 echo "4. Installing wallpapers..."
 
-for picture in ./4_wallpapers; do mv $picture ~/Pictures/$picture
+for picture in ./4_wallpapers/*.png; do cp $picture ~/Pictures/; done
 
 echo "Done!."
 
