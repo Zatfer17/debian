@@ -3,7 +3,14 @@ set -e
 gsettings set org.gnome.desktop.screensaver lock-enabled false
 gsettings set org.gnome.desktop.session idle-delay 0
 
-sudo apt update && sudo apt upgrade
+sudo apt-get update
+sudo apt-get install -y git
+
+echo "Cloning the repo..."
+rm -rf ~/Documents/ubuntu
+git clone https://github.com/Zatfer17/ubuntu.git ~/Documents/ubuntu >/dev/null
+
+echo "Installation starting..."
 
 echo "1. Installing packages..."
 
