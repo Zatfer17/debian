@@ -1,10 +1,13 @@
-# ubuntu
+# debian
 
-My i3wm ubuntu setup
+My i3wm debian setup
 
 ## Setup
 
 Run:
 ```
-bash install.sh
+sudo apt-get update
+sudo apt-get install git
+git clone https://github.com/Zatfer17/debian.git ~/Documents/debian
+yes | bash install.sh
 ```
