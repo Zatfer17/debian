@@ -14,12 +14,11 @@ for installer in ./2_apps/*.sh; do source $installer; done
 
 echo "3. Installing dotfiles..."
 
-for file in ./3_dotfiles/.config/; do yes | cp $file ~/.config; done
-for file in ./3_dotfiles/.*; do yes | cp $file ~/; done
+for file in ./3_dotfiles/; do yes | cp -r $file ~/; done
 
 echo "4. Installing wallpapers..."
 
-for picture in ./4_wallpapers/*.png; do cp $picture ~/Pictures/; done
+for picture in ./4_wallpapers/*.png; do yes | cp $picture ~/Pictures/; done
 
 echo "Done!."
 
