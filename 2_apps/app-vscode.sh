@@ -1,1 +1,1 @@
-flatpak install flathub com.visualstudio.code
+sudo flatpak install flathub com.visualstudio.code

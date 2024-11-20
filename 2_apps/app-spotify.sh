@@ -1,1 +1,1 @@
-flatpak install flathub com.spotify.Client
+sudo flatpak install flathub com.spotify.Client
