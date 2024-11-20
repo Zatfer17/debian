@@ -1,6 +1,6 @@
 # ubuntu
 
-My vanilla ubuntu setup, largely inspired by [Omakub](https://github.com/basecamp/omakub)
+My i3wm ubuntu setup
 
 ## Setup
 

@@ -1,0 +1,35 @@
+separator_block_width=20
+markup=none
+
+[mediaplayer]
+label=♫
+instance=spotify
+command=perl ~/.config/i3blocks/mediaplayer
+interval=5
+signal=10
+
+[wifi]
+label=📶
+command=bash ~/.config/i3blocks/wifi
+interval=60
+
+[volume]
+label=🔉
+command=bash ~/.config/i3blocks/volume
+interval=once
+signal=10
+
+[battery]
+label=🔋
+command=perl ~/.config/i3blocks/battery
+interval=30
+
+#LABEL=⚡
+#BAT_NUMBER=0
+
+[time]
+label=⌛
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=5
+
+#leave a trailing line

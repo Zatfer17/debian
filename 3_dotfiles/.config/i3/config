@@ -1,0 +1,199 @@
+## TODO
+# Use include /usr/share/regolith/common/config.d/*
+
+###############
+## VARIABLES ##   
+###############
+
+# Buttons
+set $mod Mod4
+
+# Workspaces
+set $ws1  "1:Uno |"
+set $ws2  "2:Due |"
+set $ws3  "3:Tre |"
+set $ws4  "4:Quattro |"
+set $ws5  "5:Cinque |"
+set $ws6  "6:Sei |"
+set $ws7  "7:Sette |"
+set $ws8  "8:Otto |"
+set $ws9  "9:Nove |"
+set $ws10 "10:Dieci |"
+
+# Colors
+set $color1 #4818a8
+set $color2 #301860
+set $color3 #180030
+set $color4 #181848
+
+set $black1 #000000
+set $black2 #000018
+
+set $white1 #FFFFFF
+
+set $accent1 #901860
+set $accent2 #a81848
+set $accent3 #f00000
+
+################
+## DIRECTIVES ##
+################
+
+# Applets
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color=$color1 --no-unlock-indicator --ignore-empty-password
+#exec --no-startup-id nm-applet
+
+################
+## APPEARANCE ##
+################
+
+# Font
+font pango:DejaVu Sans Mono 8
+
+# Background
+#exec_always --no-startup-id hsetroot -solid "#4722A5"
+exec_always --no-startup-id hsetroot -cover "Pictures/wallpaper.png"
+
+# Bar
+bar {
+        #status_command i3status
+        status_command i3blocks -v
+        position top
+        #strip_workspace_numbers yes
+        padding 0 10 0 0
+
+        colors {
+                background $color2
+                statusline $white1
+                separator  $white1
+
+                focused_workspace  $accent2 $accent2 $white1
+                active_workspace   $color3  $color3  $white1
+                inactive_workspace $color2  $color2  $white1
+                urgent_workspace   $accent3 $accent3 $white1
+                binding_mode       $accent3 $accent3 $white1
+        }
+        
+}
+
+# Borders
+#hide_edge_borders smart
+gaps inner 4
+default_border pixel 0
+for_window [class=".*"] border pixel 4
+#smart_gaps on
+
+# Title Bar
+# class                 border  bground text    indicator child_border
+client.focused          $accent2 $accent2 #FFFFFF $accent2 $accent2
+client.focused_inactive $color1  $color1  #FFFFFF $color3  $color3
+client.unfocused        $color3  $color3  #888888 $color1  $color1
+client.urgent           $accent3 $accent3 #FFFFFF $accent3 $accent3
+client.placeholder      #000000  #0C0C0C  #FFFFFF #000000  #301860
+
+client.background       #FFFFFF
+
+##############2
+## BINDINGS ##
+##############
+
+# Function keys
+bindsym XF86AudioRaiseVolume  exec --no-startup-id amixer -q set Master 5%+ && pkill -RTMIN+10 i3blocks 
+bindsym XF86AudioLowerVolume  exec --no-startup-id amixer -q set Master 5%- && pkill -RTMIN+10 i3blocks
+#bindsym XF86AudioMute         exec --no-startup-id amixer set Master toggle && pkill -RTMIN+10 i3blocks
+#bindsym XF86AudioMicMute      exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle         && $refresh_i3status
+bindsym XF86MonBrightnessUp   exec --no-startup-id brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym Print                 exec --no-startup-id scrot '~/Pictures/Screenshot_%a-%d%b%y_%H.%M.png' -e 'xdg-open ~/$f'
+
+# Basics
+bindsym $mod+space exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -nf '#BBBBBB' -nb '$color2' -sb '$accent2' -sf '$white1'"
+bindsym $mod+q kill
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+Escape exec --no-startup-id i3lock --color=$color1 --no-unlock-indicator --ignore-empty-password
+
+# Navigation
+## Focus
+bindsym $mod+a focus parent
+
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+### or
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+## Window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+### or
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+## Workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# Tiling
+floating_modifier $mod
+
+tiling_drag modifier titlebar
+
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+d floating toggle
+bindsym $mod+d focus mode_toggle
+
+# i3
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+Escape exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Resize
+mode "resize" {
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
