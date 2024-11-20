@@ -1,1 +1,1 @@
-sudo snap install bitwarden
+flatpak install flathub com.bitwarden.desktop
