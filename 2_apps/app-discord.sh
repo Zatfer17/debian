@@ -1,1 +1,1 @@
-sudo flatpak install flathub com.discordapp.Discord
+sudo flatpak install flathub com.discordapp.Discord -y

@@ -1,1 +1,1 @@
-sudo flatpak install flathub com.google.Chrome
+sudo flatpak install flathub com.google.Chrome -y

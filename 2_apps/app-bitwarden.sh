@@ -1,1 +1,1 @@
-sudo flatpak install flathub com.bitwarden.desktop
+sudo flatpak install flathub com.bitwarden.desktop -y
