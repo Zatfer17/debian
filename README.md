@@ -6,9 +6,7 @@ My i3wm debian setup
 
 Run:
 ```
-sudo apt-get update
-sudo apt-get install git
-git clone https://github.com/Zatfer17/debian.git ~/Documents/debian
-cd ~/Documents/debian
+git clone https://github.com/Zatfer17/debian.git
+cd debian/
 yes | bash install.sh
 ```
